@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Оплата прошла успешно — RusBridge</title>
+  <style>
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,#0b1220);
+      color:#e8eefc;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      text-align:center;
+    }
+    .card{
+      background:rgba(15,26,47,.85);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:18px;
+      padding:30px;
+      max-width:420px;
+    }
+    .btn{
+      display:inline-block;
+      margin-top:20px;
+      padding:10px 16px;
+      border-radius:12px;
+      background:rgba(77,163,255,.18);
+      border:1px solid rgba(77,163,255,.35);
+      color:#fff;
+      text-decoration:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Оплата прошла успешно 🎉</h2>
+    <p>Сейчас мы перенаправим вас в Telegram-бот для завершения оформления.</p>
+    <a class="btn" href="https://t.me/RusBridgeBot">Перейти в бот</a>
+  </div>
+
+  <script>
+    setTimeout(function(){
+      window.location.href = "https://t.me/RusBridgeBot";
+    }, 2000);
+  </script>
+</body>
+</html>
