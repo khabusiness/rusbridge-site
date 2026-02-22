@@ -13,36 +13,174 @@
     }
     *{box-sizing:border-box}
     body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:linear-gradient(180deg,#070b14, #0b1220);
-      color:var(--text);
+        margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+        background:linear-gradient(180deg,#070b14, #0b1220);
+        color:var(--text);
     }
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:980px;margin:0 auto;padding:28px 16px 80px}
-    header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-    .brand{display:flex;align-items:center;gap:12px}
+    a{
+        color:var(--accent); text-decoration:none
+    }
+    a:hover{
+        text-decoration:underline
+    }
+    .wrap{
+        max-width:980px;margin:0 auto;padding:28px 16px 80px
+    }
+    header{
+        display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap
+    }
+    .brand{
+        display:flex;align-items:center;gap:12px
+    }
     .logo{
       width:44px;height:44px;border-radius:12px;
       background:radial-gradient(circle at 30% 30%, #6bb7ff, #1c4fa8);
-      box-shadow:0 10px 30px rgba(77,163,255,.25);
-      flex:0 0 auto;
+      box-shadow:0 10px 30px rgba(77,163,255,.25);flex:0 0 auto;
     }
-    h1{font-size:28px;margin:0}
-    .tag{color:var(--muted);margin-top:6px;font-size:14px}
+    .logo-img{
+        width:44px;height:44px;border-radius:12px;
+        object-fit:cover;box-shadow:0 10px 30px rgba(77,163,255,.25);
+        }
+    h1{
+        font-size:28px;margin:0
+    }
+    .tag{
+        color:var(--muted);margin-top:6px;font-size:14px
+    }
     .pill{
-      display:inline-flex;gap:8px;align-items:center;
-      padding:8px 10px;border-radius:999px;
-      background:rgba(77,163,255,.12);border:1px solid rgba(77,163,255,.28);
-      font-size:13px;color:var(--text);
+        display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;
+        background:rgba(77,163,255,.12);border:1px solid rgba(77,163,255,.28);
+        font-size:13px;color:var(--text);
     }
     .card{
-      margin-top:18px;background:rgba(15,26,47,.85);
-      border:1px solid var(--border);border-radius:18px;padding:18px;
-      box-shadow:0 10px 40px rgba(0,0,0,.35);
+        margin-top:18px;background:rgba(15,26,47,.85);border:1px solid var(--border);
+        border-radius:18px;padding:18px;box-shadow:0 10px 40px rgba(0,0,0,.35);
     }
-    .grid{display:grid;grid-template-columns:1fr;gap:14px}
-    @media(min-width:860px){.grid{grid-template-columns:1.2fr .8fr}}
+    .products{
+        position: relative; overflow: hidden;
+    }
+    .products:before{
+        content:""; position:absolute; inset:-120px -80px auto auto; width:380px; height:380px;
+        background: radial-gradient(circle at 30% 30%, rgba(77,163,255,.35), rgba(77,163,255,0) 65%);
+        filter: blur(0px); pointer-events:none;}
+    .products:after{
+        content:"";position:absolute;inset:auto auto -160px -120px;width:420px;height:420px;
+        background: radial-gradient(circle at 60% 60%, rgba(255,255,255,.10), rgba(255,255,255,0) 65%);
+        pointer-events:none;
+    }
+    /* .products:before,
+    .products:after{
+        z-index: 0;
+    } */
+    .products > *{
+        position: relative; z-index: 1;
+    }
+    .products-head{
+        display:flex;align-items:flex-start;justify-content:space-between;
+        gap:16px;flex-wrap:wrap;
+    }
+    .products-controls{
+        display:flex;flex-direction:column;gap:10px;min-width:260px;
+    }
+    .sku-search{
+        width: min(360px, 100%);padding:10px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.06);color: var(--text);outline: none;
+    }
+    .sku-search:focus{
+        border-color: rgba(77,163,255,.45);box-shadow: 0 0 0 4px rgba(77,163,255,.14);
+    }
+    .chips{
+        display:flex;gap:8px;flex-wrap:wrap;
+    }
+    .chip{
+        padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.05);color: var(--text);font-size:13px;
+        cursor:pointer;user-select:none;
+    }
+    .chip.active{
+        border-color: rgba(77,163,255,.35);background: rgba(77,163,255,.14);
+    }
+    .subs-grid{
+        display:grid;grid-template-columns:1fr;gap:12px;
+        margin-top:14px;position: relative;z-index: 1;
+    }
+    @media (min-width:860px){
+        .subs-grid{ grid-template-columns:1fr 1fr; }
+    }
+    .subs-card{
+        background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+        border: 1px solid rgba(255,255,255,.10);border-radius:18px;padding:14px;
+        transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .subs-card:hover{
+        transform: translateY(-2px);border-color: rgba(77,163,255,.25);
+        background: linear-gradient(180deg, rgba(77,163,255,.10), rgba(255,255,255,.03));
+    }
+    .subs-title{
+        font-weight:800;font-size:14px;letter-spacing:.2px;
+        margin-bottom:10px;display:flex;align-items:center;gap:10px;
+    }
+    .subs-title:before{
+        content:"";width:10px;height:10px;border-radius:999px;
+        background: rgba(77,163,255,.90);box-shadow: 0 0 0 4px rgba(77,163,255,.14);
+    }
+    .badge{
+        font-size:11px;padding:4px 8px;border-radius:999px;
+        border:1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.06);color: var(--text);
+    }
+    .badge.popular{
+        border-color: rgba(77,163,255,.35);background: rgba(77,163,255,.14);
+    }
+    .badge.new{
+        border-color: rgba(255,255,255,.18);background: rgba(255,255,255,.10);
+    }
+    .subs-list{
+        list-style:none;padding:0;margin:0;
+    }
+    .subs-list li{
+        display:flex;align-items:center;justify-content:space-between;
+        gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.06);
+    }
+    .subs-list li:first-child{
+        border-top:none;
+    }
+    .sku-link{
+        display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border-radius:12px;
+        border:1px solid rgba(255,255,255,.12);background: rgba(0,0,0,.12);text-decoration:none;
+    }
+    .sku-link:hover{
+        border-color: rgba(77,163,255,.35);background: rgba(77,163,255,.10);
+    }
+    .sku-link code{
+        font-size:12px;
+    }
+    .arrow{
+        font-size:12px;opacity:.85;
+    }
+    .products-foot{
+        display:flex;align-items:flex-end;justify-content:space-between;
+        gap:14px;flex-wrap:wrap;margin-top: 14px;
+    }
+    .note{
+        padding:12px 14px;border-radius:16px;border:1px solid rgba(255,255,255,.10);
+        background: rgba(255,255,255,.05);max-width: 560px;
+    }
+    .note-title{
+        font-weight:800; margin-bottom:4px;
+    }
+    .subs-list span{
+        color:var(--text); font-size:13px;
+    }
+    .subs-list code{
+        font-size:12px; opacity:.95;
+    }
+    .grid{
+        display:grid;grid-template-columns:1fr;gap:14px
+    }
+    @media(min-width:860px){
+        .grid{grid-template-columns:1.2fr .8fr}
+    }
     h2{margin:0 0 10px;font-size:18px}
     h3{margin:16px 0 8px;font-size:16px}
     p{margin:8px 0;line-height:1.55}
@@ -65,13 +203,12 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
+        <img src="logo.png" alt="RusBridge logo" class="logo-img">
         <div>
           <h1>RusBridge</h1>
-          <div class="tag">Одностраничный сайт • Оферта • Тарифы • Контакты</div>
+          <div class="tag">Оферта • Тарифы • Контакты</div>
         </div>
       </div>
-      <span class="pill">Редакция: <strong id="revDate">2026-02-22</strong></span>
     </header>
 
     <div class="grid">
@@ -125,6 +262,143 @@
         </ul>
       </aside>
     </div>
+
+    <section id="products" class="card products">
+        <div class="products-head">
+            <div>
+            <h2>Подписки, которые оформляем</h2>
+            <p class="muted small">Кликни по позиции — откроется бот уже с нужным ключом. Без лишней переписки.</p>
+            </div>
+
+            <div class="products-controls">
+            <input id="skuSearch" class="sku-search" type="search" placeholder="Поиск: gpt_, claude_, copilot_…" autocomplete="off">
+            <div class="chips">
+                <button class="chip active" data-filter="all">Все</button>
+                <button class="chip" data-filter="gpt">GPT</button>
+                <button class="chip" data-filter="claude">Claude</button>
+                <button class="chip" data-filter="ide">IDE AI</button>
+                <button class="chip" data-filter="nano">NanoBanana</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="subs-grid" id="subsGrid">
+            <!-- GPT -->
+            <div class="subs-card" data-group="gpt">
+            <div class="subs-title">
+                GPT
+                <span class="badge popular">Popular</span>
+            </div>
+            <ul class="subs-list">
+                <li>
+                <span>GPT Plus (1 month)</span>
+                <a class="sku-link" data-sku="gpt_plus_1m" href="https://t.me/RusBridgeBot?start=gpt_plus_1m">
+                    <code>gpt_plus_1m</code>
+                    <span class="arrow">↗</span>
+                </a>
+                </li>
+                <li>
+                <span>GPT Plus (1 year)</span>
+                <a class="sku-link" data-sku="gpt_plus_1y" href="https://t.me/RusBridgeBot?start=gpt_plus_1y">
+                    <code>gpt_plus_1y</code>
+                    <span class="arrow">↗</span>
+                </a>
+                </li>
+                <li>
+                <span>GPT Pro (1 month)</span>
+                <a class="sku-link" data-sku="gpt_pro_1m" href="https://t.me/RusBridgeBot?start=gpt_pro_1m">
+                    <code>gpt_pro_1m</code>
+                    <span class="arrow">↗</span>
+                </a>
+                </li>
+            </ul>
+            </div>
+
+            <!-- NanoBanana -->
+            <div class="subs-card" data-group="nano">
+            <div class="subs-title">
+                NanoBanana
+                <span class="badge new">New</span>
+            </div>
+            <ul class="subs-list">
+                <li>
+                <span>Basic (1 month)</span>
+                <a class="sku-link" data-sku="nano_banana_basic_1m" href="https://t.me/RusBridgeBot?start=nano_banana_basic_1m">
+                    <code>nano_banana_basic_1m</code><span class="arrow">↗</span>
+                </a>
+                </li>
+                <li>
+                <span>Pro (1 month)</span>
+                <a class="sku-link" data-sku="nano_banana_pro_1m" href="https://t.me/RusBridgeBot?start=nano_banana_pro_1m">
+                    <code>nano_banana_pro_1m</code><span class="arrow">↗</span>
+                </a>
+                </li>
+                <li>
+                <span>Max (1 month)</span>
+                <a class="sku-link" data-sku="nano_banana_max_1m" href="https://t.me/RusBridgeBot?start=nano_banana_max_1m">
+                    <code>nano_banana_max_1m</code><span class="arrow">↗</span>
+                </a>
+                </li>
+            </ul>
+            </div>
+
+            <!-- Claude -->
+            <div class="subs-card" data-group="claude">
+            <div class="subs-title">Claude</div>
+            <ul class="subs-list">
+                <li>
+                <span>Claude Pro (1 month)</span>
+                <a class="sku-link" data-sku="claude_pro_1m" href="https://t.me/RusBridgeBot?start=claude_pro_1m">
+                    <code>claude_pro_1m</code><span class="arrow">↗</span>
+                </a>
+                </li>
+                <li>
+                <span>Claude Max (1 month)</span>
+                <a class="sku-link" data-sku="claude_max_1m" href="https://t.me/RusBridgeBot?start=claude_max_1m">
+                    <code>claude_max_1m</code><span class="arrow">↗</span>
+                </a>
+                </li>
+            </ul>
+            </div>
+
+            <!-- IDE -->
+            <div class="subs-card" data-group="ide">
+            <div class="subs-title">IDE / AI Tools</div>
+            <ul class="subs-list">
+                <li>
+                <span>Cursor Pro (1 month)</span>
+                <a class="sku-link" data-sku="cursor_pro_1m" href="https://t.me/RusBridgeBot?start=cursor_pro_1m">
+                    <code>cursor_pro_1m</code><span class="arrow">↗</span>
+                </a>
+                </li>
+                <li>
+                <span>Copilot Pro (1 month)</span>
+                <a class="sku-link" data-sku="copilot_pro_1m" href="https://t.me/RusBridgeBot?start=copilot_pro_1m">
+                    <code>copilot_pro_1m</code><span class="arrow">↗</span>
+                </a>
+                </li>
+                <li>
+                <span>Copilot Pro+ (1 month)</span>
+                <a class="sku-link" data-sku="copilot_pro_plus_1m" href="https://t.me/RusBridgeBot?start=copilot_pro_plus_1m">
+                    <code>copilot_pro_plus_1m</code><span class="arrow">↗</span>
+                </a>
+                </li>
+            </ul>
+            </div>
+        </div>
+
+        <div class="products-foot">
+            <div class="note">
+            <div class="note-title">Не нашли нужную подписку?</div>
+            <div class="muted small">Пишите в бот — добавим позицию или сделаем пополнение/покупку под запрос.</div>
+            </div>
+
+            <div class="btns">
+            <a class="btn primary" href="https://t.me/RusBridgeBot">Открыть бота</a>
+            <a class="btn" href="#offer">Перейти к оферте</a>
+            </div>
+        </div>
+        </section>
 
     <section id="offer" class="card">
       <h2>Публичная оферта о заключении договора об оказании услуг</h2>
@@ -214,7 +488,7 @@
     </section>
 
     <section id="privacy" class="card">
-      <h2>Политика конфиденциальности (кратко)</h2>
+      <h2>Политика конфиденциальности</h2>
       <ul class="small">
         <li>Мы собираем только то, что нужно для оказания услуги: контакт (email/телефон/Telegram), детали заявки.</li>
         <li>Данные используются только для оказания услуг и поддержки.</li>
@@ -244,5 +518,49 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script>
+    // Фильтр по категориям + поиск по SKU/названию
+    (function(){
+        const search = document.getElementById('skuSearch');
+        const chips = Array.from(document.querySelectorAll('.chip'));
+        const cards = Array.from(document.querySelectorAll('#subsGrid .subs-card'));
+
+        let activeFilter = 'all';
+
+        function apply(){
+        const q = (search?.value || '').trim().toLowerCase();
+
+        cards.forEach(card => {
+            const group = card.getAttribute('data-group');
+            const text = card.innerText.toLowerCase();
+            const matchFilter = (activeFilter === 'all') || (group === activeFilter);
+            const matchQuery = !q || text.includes(q);
+
+            card.style.display = (matchFilter && matchQuery) ? '' : 'none';
+        });
+        }
+
+        chips.forEach(btn => {
+        btn.addEventListener('click', () => {
+            chips.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeFilter = btn.getAttribute('data-filter') || 'all';
+            apply();
+        });
+        });
+
+        if (search) search.addEventListener('input', apply);
+
+        // при клике по SKU краткая подсветка
+        document.querySelectorAll('.sku-link').forEach(a => {
+        a.addEventListener('click', () => {
+            a.style.transform = 'scale(0.98)';
+            setTimeout(() => a.style.transform = '', 120);
+        });
+        });
+
+        apply();
+    })();
+    </script>
 </body>
 </html>
