@@ -3,455 +3,608 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RusBridge — Публичная оферта</title>
-  <meta name="description" content="RusBridge — сервис организации оплаты подписок, пополнений и покупки цифровых услуг. Публичная оферта, тарифы, контакты." />
-  <meta name="keywords" content="оплатить GPT, подключить GPT Plus, оплата подписки GPT, Claude оплата, Copilot купить">
+  <title>RusBridge - оплата и подключение цифровых сервисов</title>
+  <meta name="description" content="RusBridge - сервис оплаты и подключения подписок/пополнений: GPT, Claude, NanoBanana, Midjourney, IDE и OpenRouter." />
+  <meta name="keywords" content="оплатить GPT, подключить GPT Plus, Claude Pro оплата, Midjourney подписка, OpenRouter пополнение" />
   <meta name="robots" content="index,follow" />
   <style>
     :root{
-      --bg:#0b1220; --card:#0f1a2f; --text:#e8eefc; --muted:#a9b7d0;
-      --accent:#4da3ff; --border:rgba(255,255,255,.10);
+      --bg:#070d18;
+      --bg-soft:#0f1b2f;
+      --panel:#12233d;
+      --panel-2:#101f34;
+      --text:#eaf2ff;
+      --muted:#9db1ce;
+      --accent:#4da3ff;
+      --accent-2:#67d7ff;
+      --line:rgba(255,255,255,.12);
+      --ok:#6cffb6;
+      --warning:#ffd870;
+      --max:1180px;
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
-        margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-        background:linear-gradient(180deg,#070b14, #0b1220);
-        color:var(--text);
+      margin:0;
+      font-family:Manrope,"Segoe UI",system-ui,-apple-system,sans-serif;
+      background:
+        radial-gradient(1200px 600px at -10% -10%, rgba(77,163,255,.20), rgba(77,163,255,0) 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(103,215,255,.15), rgba(103,215,255,0) 60%),
+        var(--bg);
+      color:var(--text);
     }
-    a{
-        color:var(--accent); text-decoration:none
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .section{padding:92px 18px 72px;scroll-margin-top:92px}
+    .section-inner{max-width:var(--max);margin:0 auto}
+    .section-muted{background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0))}
+
+    .site-header{
+      position:sticky;top:0;z-index:60;
+      backdrop-filter:blur(10px);
+      background:rgba(7,13,24,.74);
+      border-bottom:1px solid rgba(255,255,255,.10);
     }
-    a:hover{
-        text-decoration:underline
+    .header-inner{
+      max-width:var(--max);margin:0 auto;padding:10px 18px;
+      display:flex;align-items:center;gap:14px;justify-content:space-between;
     }
-    .wrap{
-        max-width:980px;margin:0 auto;padding:28px 16px 80px
+    .brand{display:flex;align-items:center;gap:10px;min-width:0}
+    .logo{width:42px;height:42px;border-radius:12px;object-fit:cover;box-shadow:0 8px 24px rgba(77,163,255,.32)}
+    .brand-title{font-size:20px;font-weight:800;line-height:1}
+    .brand-sub{font-size:12px;color:var(--muted);margin-top:4px}
+
+    .nav-wrap{display:flex;align-items:center;gap:10px;min-width:0}
+    .nav{
+      display:flex;gap:6px;align-items:center;flex-wrap:nowrap;overflow:auto;white-space:nowrap;
+      scrollbar-width:thin;
     }
-    header{
-        display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap
+    .nav a{
+      color:var(--text);font-size:13px;padding:8px 10px;border-radius:10px;border:1px solid transparent;
+      background:rgba(255,255,255,.02);
     }
-    .brand{
-        display:flex;align-items:center;gap:12px
-    }
-    .logo{
-      width:44px;height:44px;border-radius:12px;
-      background:radial-gradient(circle at 30% 30%, #6bb7ff, #1c4fa8);
-      box-shadow:0 10px 30px rgba(77,163,255,.25);flex:0 0 auto;
-    }
-    .logo-img{
-        width:44px;height:44px;border-radius:12px;
-        object-fit:cover;box-shadow:0 10px 30px rgba(77,163,255,.25);
-        }
-    h1{
-        font-size:28px;margin:0
-    }
-    .tag{
-        color:var(--muted);margin-top:6px;font-size:14px
-    }
-    .pill{
-        display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;
-        background:rgba(77,163,255,.12);border:1px solid rgba(77,163,255,.28);
-        font-size:13px;color:var(--text);
-    }
-    .card{
-        margin-top:18px;background:rgba(15,26,47,.85);border:1px solid var(--border);
-        border-radius:18px;padding:18px;box-shadow:0 10px 40px rgba(0,0,0,.35);
-    }
-    .products{
-        position: relative; overflow: hidden;
-    }
-    .products:before{
-        content:""; position:absolute; inset:-120px -80px auto auto; width:380px; height:380px;
-        background: radial-gradient(circle at 30% 30%, rgba(77,163,255,.35), rgba(77,163,255,0) 65%);
-        filter: blur(0px); pointer-events:none;}
-    .products:after{
-        content:"";position:absolute;inset:auto auto -160px -120px;width:420px;height:420px;
-        background: radial-gradient(circle at 60% 60%, rgba(255,255,255,.10), rgba(255,255,255,0) 65%);
-        pointer-events:none;
-    }
-    /* .products:before,
-    .products:after{
-        z-index: 0;
-    } */
-    .products > *{
-        position: relative; z-index: 1;
-    }
-    .products-head{
-        display:flex;align-items:flex-start;justify-content:space-between;
-        gap:16px;flex-wrap:wrap;
-    }
-    .products-controls{
-        display:flex;flex-direction:column;gap:10px;min-width:260px;
-    }
-    .sku-search{
-        width: min(360px, 100%);padding:10px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.14);
-        background: rgba(255,255,255,.06);color: var(--text);outline: none;
-    }
-    .sku-search:focus{
-        border-color: rgba(77,163,255,.45);box-shadow: 0 0 0 4px rgba(77,163,255,.14);
-    }
-    .chips{
-        display:flex;gap:8px;flex-wrap:wrap;
-    }
-    .chip{
-        padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
-        background: rgba(255,255,255,.05);color: var(--text);font-size:13px;
-        cursor:pointer;user-select:none;
-    }
-    .chip.active{
-        border-color: rgba(77,163,255,.35);background: rgba(77,163,255,.14);
-    }
-    .subs-grid{
-        display:grid;grid-template-columns:1fr;gap:12px;
-        margin-top:14px;position: relative;z-index: 1;
-    }
-    @media (min-width:860px){
-        .subs-grid{ grid-template-columns:1fr 1fr; }
-    }
-    .subs-card{
-        background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-        border: 1px solid rgba(255,255,255,.10);border-radius:18px;padding:14px;
-        transition: transform .15s ease, border-color .15s ease, background .15s ease;
-    }
-    .subs-card:hover{
-        transform: translateY(-2px);border-color: rgba(77,163,255,.25);
-        background: linear-gradient(180deg, rgba(77,163,255,.10), rgba(255,255,255,.03));
-    }
-    .subs-title{
-        font-weight:800;font-size:14px;letter-spacing:.2px;
-        margin-bottom:10px;display:flex;align-items:center;gap:10px;
-    }
-    .subs-title:before{
-        content:"";width:10px;height:10px;border-radius:999px;
-        background: rgba(77,163,255,.90);box-shadow: 0 0 0 4px rgba(77,163,255,.14);
-    }
-    .badge{
-        font-size:11px;padding:4px 8px;border-radius:999px;
-        border:1px solid rgba(255,255,255,.14);
-        background: rgba(255,255,255,.06);color: var(--text);
-    }
-    .badge.popular{
-        border-color: rgba(77,163,255,.35);background: rgba(77,163,255,.14);
-    }
-    .badge.new{
-        border-color: rgba(255,255,255,.18);background: rgba(255,255,255,.10);
-    }
-    .subs-list{
-        list-style:none;padding:0;margin:0;
-    }
-    .subs-list li{
-        display:flex;align-items:center;justify-content:space-between;
-        gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.06);
-    }
-    .subs-list li:first-child{
-        border-top:none;
-    }
-    .sku-link{
-        display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border-radius:12px;
-        border:1px solid rgba(255,255,255,.12);background: rgba(0,0,0,.12);text-decoration:none;
-    }
-    .sku-link:hover{
-        border-color: rgba(77,163,255,.35);background: rgba(77,163,255,.10);
-    }
-    .sku-link code{
-        font-size:12px;
-    }
-    .arrow{
-        font-size:12px;opacity:.85;
-    }
-    .products-foot{
-        display:flex;align-items:flex-end;justify-content:space-between;
-        gap:14px;flex-wrap:wrap;margin-top: 14px;
-    }
-    .note{
-        padding:12px 14px;border-radius:16px;border:1px solid rgba(255,255,255,.10);
-        background: rgba(255,255,255,.05);max-width: 560px;
-    }
-    .note-title{
-        font-weight:800; margin-bottom:4px;
-    }
-    .subs-list span{
-        color:var(--text); font-size:13px;
-    }
-    .subs-list code{
-        font-size:12px; opacity:.95;
-    }
-    .grid{
-        display:grid;grid-template-columns:1fr;gap:14px
-    }
-    @media(min-width:860px){
-        .grid{grid-template-columns:1.2fr .8fr}
-    }
-    h2{margin:0 0 10px;font-size:18px}
-    h3{margin:16px 0 8px;font-size:16px}
-    p{margin:8px 0;line-height:1.55}
-    ul{margin:8px 0 0 18px}
-    li{margin:6px 0}
-    .muted{color:var(--muted)}
-    .hr{height:1px;background:rgba(255,255,255,.08);margin:16px 0}
-    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .nav a:hover{border-color:var(--line);text-decoration:none}
+
     .btn{
-      display:inline-block;padding:10px 12px;border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06)
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      border:1px solid var(--line);background:rgba(255,255,255,.05);
+      color:var(--text);border-radius:12px;padding:10px 14px;font-weight:700;
+      text-decoration:none;transition:.18s ease;
     }
-    .btn.primary{background:rgba(77,163,255,.18);border-color:rgba(77,163,255,.35)}
-    code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:8px}
-    .small{font-size:13px}
-    footer{margin-top:22px;color:var(--muted);font-size:12px}
+    .btn:hover{transform:translateY(-1px);border-color:rgba(77,163,255,.45);text-decoration:none}
+    .btn.primary{background:linear-gradient(135deg, rgba(77,163,255,.26), rgba(103,215,255,.15));border-color:rgba(77,163,255,.45)}
+    .btn.ghost{background:rgba(255,255,255,.02)}
+
+    .hero{
+      position:relative;
+      background:
+        linear-gradient(180deg, rgba(77,163,255,.12), rgba(77,163,255,0)),
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";position:absolute;inset:-120px auto auto -180px;width:560px;height:560px;
+      background:radial-gradient(circle at 50% 50%, rgba(103,215,255,.25), rgba(103,215,255,0) 64%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center;
+    }
+    .hero h1{font-size:clamp(28px,4vw,48px);line-height:1.1;margin:0 0 14px}
+    .hero p{font-size:16px;color:var(--muted);line-height:1.6;max-width:760px;margin:0}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+    .icon-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .icon-pill{
+      display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;
+      border:1px solid var(--line);background:rgba(255,255,255,.05);font-size:13px;
+    }
+    .icon-pill img{width:22px;height:22px;border-radius:6px;object-fit:cover}
+
+    .hero-art{
+      background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:20px;padding:10px;
+      box-shadow:0 20px 50px rgba(0,0,0,.30);
+    }
+    .hero-art img{display:block;width:100%;height:auto;border-radius:14px}
+
+    .section-title{font-size:clamp(24px,3vw,36px);margin:0 0 12px}
+    .section-sub{color:var(--muted);margin:0 0 22px;line-height:1.6}
+
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);border-radius:20px;padding:20px;
+    }
+    .panel h3{margin:0 0 10px;font-size:22px}
+    .panel p{margin:0}
+
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .bullets{margin:0;padding-left:18px}
+    .bullets li{margin:8px 0;line-height:1.55}
+
+    .important{
+      border:1px solid rgba(255,216,112,.42);
+      background:linear-gradient(180deg, rgba(255,216,112,.12), rgba(255,216,112,.03));
+    }
+    .important h3{display:flex;align-items:center;gap:10px}
+    .important .dot{width:10px;height:10px;border-radius:99px;background:var(--warning);box-shadow:0 0 0 5px rgba(255,216,112,.16)}
+
+    .about-gallery{
+      margin-top:16px;
+      display:grid;grid-template-columns:repeat(5,minmax(160px,1fr));gap:10px;
+    }
+    .shot{
+      border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--panel-2);
+    }
+    .shot img{display:block;width:100%;aspect-ratio:13/20;object-fit:cover}
+    .shot span{display:block;padding:8px 10px;font-size:12px;color:var(--muted)}
+
+    .services-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .service-card{
+      border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border-radius:18px;overflow:hidden;display:grid;grid-template-columns:140px 1fr;
+      min-height:220px;
+    }
+    .service-media{background:var(--panel);min-height:100%}
+    .service-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .service-body{padding:14px 14px 12px}
+    .service-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .service-top h3{margin:0;font-size:20px}
+    .badge{font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06)}
+    .service-body p{margin:10px 0 0;color:var(--muted);line-height:1.5;font-size:14px}
+    .service-meta{margin-top:10px;font-size:13px}
+    .service-meta strong{color:var(--text)}
+    .service-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .service-note{margin-top:10px;font-size:12px;color:var(--muted)}
+
+    .catalog{
+      position:relative;overflow:hidden;
+      background:
+        radial-gradient(circle at 95% 8%, rgba(77,163,255,.23), rgba(77,163,255,0) 35%),
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    }
+    .catalog-head{
+      display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap;
+    }
+    .controls{display:flex;flex-direction:column;gap:10px;min-width:280px}
+    .search{
+      width:min(400px,100%);padding:11px 12px;border-radius:12px;border:1px solid var(--line);
+      background:rgba(255,255,255,.05);color:var(--text);outline:none;
+    }
+    .search:focus{border-color:rgba(77,163,255,.45);box-shadow:0 0 0 4px rgba(77,163,255,.16)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{
+      border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);
+      border-radius:999px;padding:8px 11px;font-size:13px;cursor:pointer;
+    }
+    .chip.active{border-color:rgba(77,163,255,.45);background:rgba(77,163,255,.18)}
+
+    .catalog-grid{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .catalog-card{
+      border:1px solid var(--line);border-radius:16px;padding:14px;background:rgba(8,18,34,.46);
+    }
+    .catalog-title{font-size:16px;font-weight:800;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+    .catalog-title:before{content:"";width:9px;height:9px;border-radius:99px;background:var(--accent)}
+    .catalog-list{list-style:none;margin:0;padding:0}
+    .catalog-list li{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 0;border-top:1px solid rgba(255,255,255,.08)}
+    .catalog-list li:first-child{border-top:none}
+    .sku-link{
+      display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:10px;
+      padding:6px 9px;background:rgba(255,255,255,.04);text-decoration:none;
+    }
+    .sku-link:hover{border-color:rgba(77,163,255,.45);text-decoration:none}
+    .sku-link code{font-size:12px}
+
+    .steps-grid{display:grid;grid-template-columns:repeat(5,minmax(160px,1fr));gap:10px}
+    .step-link{
+      border:1px solid var(--line);border-radius:14px;padding:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      color:var(--text);text-decoration:none;min-height:128px;display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .step-link:hover{border-color:rgba(77,163,255,.45);transform:translateY(-1px);text-decoration:none}
+    .step-link strong{font-size:16px;line-height:1.3}
+    .step-link span{font-size:13px;color:var(--muted)}
+
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+
+    .contacts{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:14px;
+    }
+    .contact-list{margin:0;padding-left:18px}
+    .contact-list li{margin:7px 0}
+    .disclaimer{font-size:13px;color:var(--muted);margin-top:12px}
+
+    footer{padding:24px 18px 36px;color:var(--muted);font-size:12px}
+    .footer-inner{max-width:var(--max);margin:0 auto;border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
+
+    @media (max-width:1080px){
+      .hero-grid{grid-template-columns:1fr}
+      .about-gallery{grid-template-columns:repeat(3,minmax(140px,1fr))}
+      .steps-grid{grid-template-columns:repeat(2,minmax(180px,1fr))}
+      .contacts{grid-template-columns:1fr}
+    }
+    @media (max-width:860px){
+      .section{padding-top:82px}
+      .header-inner{flex-wrap:wrap;justify-content:center}
+      .services-grid,.catalog-grid,.two-col{grid-template-columns:1fr}
+      .service-card{grid-template-columns:1fr}
+      .service-media{max-height:180px}
+      .about-gallery{grid-template-columns:repeat(2,minmax(140px,1fr))}
+      .steps-grid{grid-template-columns:1fr}
+      .nav{width:100%}
+      .nav-wrap{width:100%;justify-content:space-between}
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
+  <header class="site-header">
+    <div class="header-inner">
       <div class="brand">
-        <img src="logo.png" alt="RusBridge logo" class="logo-img">
+        <img src="logo.png" alt="RusBridge logo" class="logo" />
         <div>
-          <h1>RusBridge</h1>
-          <div class="tag">Оферта • Тарифы • Контакты</div>
+          <div class="brand-title">RusBridge</div>
+          <div class="brand-sub">Оплата и подключение цифровых сервисов</div>
         </div>
       </div>
-    </header>
 
-    <div class="grid">
-      <section class="card">
-        <h2>Что такое RusBridge</h2>
-        <p class="muted">
-          RusBridge — сервис оказания цифровых услуг: организация оплаты подписок,
-          пополнений и покупки цифровых услуг/сервисов у третьих лиц.
-        </p>
+      <div class="nav-wrap">
+        <nav class="nav" aria-label="Основная навигация">
+          <a href="#about">О сервисе</a>
+          <a href="#services">Услуги</a>
+          <a href="#catalog">Тарифы/каталог</a>
+          <a href="#steps">Как подключить</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+        <a class="btn primary" href="https://t.me/RusBridgeBot">Открыть бота</a>
+      </div>
+    </div>
+  </header>
 
-        <ul class="small">
-          <li><strong>Формат:</strong> цифровая услуга (не физический товар).</li>
-          <li><strong>Сайт:</strong> <a href="https://rus-bridge.ru/">rus-bridge.ru</a></li>
-          <li><strong>Поддержка:</strong> <a href="mailto:habibilin.1987.2011@gmail.com">habibilin.1987.2011@gmail.com</a></li>
-          <li><strong>Телефон:</strong> <a href="tel:+79132400017">+7 913 240-00-17</a></li>
-          <li><strong>Telegram:</strong> <a href="https://t.me/RusBridgeBot">@RusBridgeBot</a></li>
-        </ul>
+  <main>
+    <section class="section hero" id="top">
+      <div class="section-inner hero-grid">
+        <div>
+          <h1>RusBridge - оплата и подключение подписок и цифровых сервисов</h1>
+          <p>Быстро, без лишней переписки. Открываете бота, выбираете позицию, подтверждаете оплату в своем аккаунте и мы доводим подключение до результата.</p>
 
-        <div class="hr"></div>
+          <div class="hero-actions">
+            <a class="btn primary" href="#catalog">Выбрать подписку</a>
+            <a class="btn ghost" href="#steps">Как подключить</a>
+          </div>
 
-        <h2>Тарифы</h2>
+          <div class="icon-row" aria-label="Сервисы">
+            <div class="icon-pill"><img src="images/index_block/gpt_logo%201.jpeg" alt="GPT" />GPT</div>
+            <div class="icon-pill"><img src="images/index_block/cloud_logo%202.webp" alt="Claude" />Claude</div>
+            <div class="icon-pill"><img src="images/index_block/nano_logo%202.jpg" alt="NanoBanana" />NanoBanana</div>
+            <div class="icon-pill"><img src="images/index_block/cursor_logo%201.webp" alt="IDE" />IDE Tools</div>
+            <div class="icon-pill"><img src="images/index_block/openrouter_logo%201.webp" alt="OpenRouter" />OpenRouter</div>
+          </div>
+        </div>
 
-        <ul class="small">
-          <li><strong>Комиссия сервиса:</strong> <code>от 20%</code> </li>
-          <li><strong>Срок оказания:</strong> обычно <code>от 5 минут до 30 минут</code></li>
-          <li><strong>Итоговая стоимость:</strong> согласуется до оплаты в переписке/заявке</li>
-        </ul>
+        <div class="hero-art">
+          <img src="images/index_head/Bridge%202.png" alt="RusBridge hero" />
+        </div>
+      </div>
+    </section>
 
-        <div class="btns">
-          <a class="btn primary" href="oferta.html">Читать оферту</a>
+    <section class="section section-muted" id="about">
+      <div class="section-inner">
+        <h2 class="section-title">Что такое RusBridge</h2>
+        <p class="section-sub">Организуем оплату и подключение цифровых сервисов по понятному сценарию и сопровождаем до финального статуса.</p>
+
+        <div class="two-col">
+          <article class="panel">
+            <h3>О сервисе</h3>
+            <ul class="bullets">
+              <li>Помогаем оплачивать подписки и цифровые услуги, недоступные напрямую в РФ и СНГ.</li>
+              <li>Работаем через официальные страницы оплаты выбранных сервисов.</li>
+              <li>Сопровождаем в процессе оплаты и подтверждения до итогового результата.</li>
+              <li>Все прозрачно: оферта, политика конфиденциальности и реквизиты доступны на сайте.</li>
+            </ul>
+          </article>
+
+          <article class="panel important">
+            <h3><span class="dot"></span>Важно</h3>
+            <ul class="bullets">
+              <li><strong>Мы не создаем новые аккаунты</strong> и не регистрируем сервисы за пользователя.</li>
+              <li>Работаем <strong>только с существующими аккаунтами</strong>: вы входите в аккаунт и управляете доступом самостоятельно.</li>
+              <li>Наша роль - <strong>организация оплаты и подключения</strong>, а также сопровождение до результата.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="about-gallery" aria-label="Этапы подключения">
+          <figure class="shot">
+            <img src="images/index_about/about1.jpg" alt="Открыть план Upgrade" />
+            <span>Открыть план / Upgrade</span>
+          </figure>
+          <figure class="shot">
+            <img src="images/index_about/about2.jpg" alt="Выбрать страну Kyrgyzstan" />
+            <span>Страна Kyrgyzstan</span>
+          </figure>
+          <figure class="shot">
+            <img src="images/index_about/about3.jpg" alt="Копировать ссылку оплаты" />
+            <span>Копировать ссылку</span>
+          </figure>
+          <figure class="shot">
+            <img src="images/index_about/about4.jpg" alt="Чек и успешный статус" />
+            <span>Чек / успешный статус</span>
+          </figure>
+          <figure class="shot">
+            <img src="images/index_about/about5.jpg" alt="Подтверждение в боте" />
+            <span>Бот подтвердил: готово</span>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-inner">
+        <h2 class="section-title">Наши услуги</h2>
+        <p class="section-sub">Выберите сервис - покажем варианты и проведем по шагам.</p>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-media"><img src="images/index_block/gpt_logo%202.jpg" alt="GPT" /></div>
+            <div class="service-body">
+              <div class="service-top"><h3>GPT (ChatGPT)</h3><span class="badge">Popular</span></div>
+              <p>Подписка на ChatGPT для работы, учебы и задач бизнеса: быстрый доступ к продвинутым моделям, анализу данных, коду и изображениям.</p>
+              <div class="service-meta">Оформляем: <strong>GPT Go / Plus / Pro (1 месяц)</strong></div>
+              <div class="service-actions">
+                <a class="btn primary" href="#catalog">Выбрать подписку</a>
+                <a class="btn" href="help-gpt.html">Инструкция подключения</a>
+              </div>
+              <div class="service-note">Работаем только с вашим существующим аккаунтом.</div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-media"><img src="images/index_block/cloud_logo%201.webp" alt="Claude" /></div>
+            <div class="service-body">
+              <div class="service-top"><h3>Claude</h3><span class="badge">Anthropic</span></div>
+              <p>Продвинутая AI-модель для анализа больших текстов, юридических и технических документов и сложных задач.</p>
+              <div class="service-meta">Оформляем: <strong>Claude Pro / Claude Max (1 месяц)</strong></div>
+              <div class="service-actions">
+                <a class="btn primary" href="#catalog">Выбрать подписку</a>
+                <a class="btn" href="help-claude.html">Инструкция подключения</a>
+              </div>
+              <div class="service-note">Подключение проводится к вашему аккаунту через официальный checkout.</div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-media"><img src="images/index_block/nano_logo%201.png" alt="NanoBanana" /></div>
+            <div class="service-body">
+              <div class="service-top"><h3>NanoBanana</h3><span class="badge">Image AI</span></div>
+              <p>Сервис генерации изображений с подпиской или покупкой кредитов для контента, визуалов и креатива.</p>
+              <div class="service-meta">Оформляем: <strong>Basic / Pro / Max</strong> (подписка или кредиты в зависимости от провайдера)</div>
+              <div class="service-actions">
+                <a class="btn primary" href="#catalog">Выбрать подписку</a>
+                <a class="btn" href="help-nanobanana.html">Инструкция подключения</a>
+              </div>
+              <div class="service-note">Работаем с вашим аккаунтом выбранного провайдера, доступ остается у вас.</div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-media"><img src="images/index_block/midjourney_logo%202.png" alt="Midjourney" /></div>
+            <div class="service-body">
+              <div class="service-top"><h3>Midjourney</h3><span class="badge">Discord</span></div>
+              <p>Один из самых популярных AI-сервисов генерации изображений через Discord для креативных задач.</p>
+              <div class="service-meta">Оформляем: <strong>Standard / Pro / Mega (1 месяц)</strong></div>
+              <div class="service-actions">
+                <a class="btn primary" href="#catalog">Выбрать подписку</a>
+                <a class="btn" href="#steps">Инструкция подключения</a>
+              </div>
+              <div class="service-note">Оплата проходит по официальной ссылке вашего аккаунта без создания новых профилей.</div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-media"><img src="images/index_block/cursor_logo%202.webp" alt="IDE AI Tools" /></div>
+            <div class="service-body">
+              <div class="service-top"><h3>IDE / AI Tools</h3><span class="badge">Cursor / Copilot</span></div>
+              <p>Инструменты для разработчиков: автогенерация кода, рефакторинг, умные подсказки и ускорение командной разработки.</p>
+              <div class="service-meta">Оформляем: <strong>Cursor Pro / Copilot Pro / Copilot Pro+ (1 месяц)</strong></div>
+              <div class="service-actions">
+                <a class="btn primary" href="#catalog">Выбрать подписку</a>
+                <a class="btn" href="help-ide.html">Инструкция подключения</a>
+              </div>
+              <div class="service-note">Подписка подключается к вашему рабочему аккаунту, доступ полностью остается у вас.</div>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-media"><img src="images/index_block/openrouter_logo%202.png" alt="OpenRouter" /></div>
+            <div class="service-body">
+              <div class="service-top"><h3>OpenRouter</h3><span class="badge">API Models</span></div>
+              <p>Агрегатор AI-моделей для API: удобное пополнение баланса и работа с разными моделями в одном интерфейсе.</p>
+              <div class="service-meta">Оформляем: <strong>пополнение баланса OpenRouter</strong></div>
+              <div class="service-actions">
+                <a class="btn primary" href="#catalog">Выбрать подписку</a>
+                <a class="btn" href="help-openrouter.html">Инструкция подключения</a>
+              </div>
+              <div class="service-note">Работаем через официальный checkout, средства зачисляются на ваш аккаунт.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="catalog">
+      <div class="section-inner panel catalog">
+        <div class="catalog-head">
+          <div>
+            <h2 class="section-title" style="margin-bottom:8px">Подписки, которые оформляем</h2>
+            <p class="section-sub" style="margin-bottom:0">Сначала выбираете категорию или находите SKU через поиск, затем переходите в бота уже с готовым ключом.</p>
+          </div>
+
+          <div class="controls">
+            <input id="skuSearch" class="search" type="search" placeholder="Поиск: gpt_, claude_, copilot_, openrouter..." autocomplete="off" />
+            <div class="chips">
+              <button class="chip active" data-filter="all" type="button">Все</button>
+              <button class="chip" data-filter="gpt" type="button">GPT</button>
+              <button class="chip" data-filter="claude" type="button">Claude</button>
+              <button class="chip" data-filter="nano" type="button">NanoBanana</button>
+              <button class="chip" data-filter="ide" type="button">IDE</button>
+              <button class="chip" data-filter="other" type="button">Другое</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="catalog-grid" id="subsGrid">
+          <article class="catalog-card" data-group="gpt">
+            <h3 class="catalog-title">GPT</h3>
+            <ul class="catalog-list">
+              <li><span>GPT Go (1 month)</span><a class="sku-link" data-sku="gpt_go_1m" href="https://t.me/RusBridgeBot?start=gpt_go_1m"><code>gpt_go_1m</code></a></li>
+              <li><span>GPT Plus (1 month)</span><a class="sku-link" data-sku="gpt_plus_1m" href="https://t.me/RusBridgeBot?start=gpt_plus_1m"><code>gpt_plus_1m</code></a></li>
+              <li><span>GPT Pro (1 month)</span><a class="sku-link" data-sku="gpt_pro_1m" href="https://t.me/RusBridgeBot?start=gpt_pro_1m"><code>gpt_pro_1m</code></a></li>
+            </ul>
+          </article>
+
+          <article class="catalog-card" data-group="claude">
+            <h3 class="catalog-title">Claude</h3>
+            <ul class="catalog-list">
+              <li><span>Claude Pro (1 month)</span><a class="sku-link" data-sku="claude_pro_1m" href="https://t.me/RusBridgeBot?start=claude_pro_1m"><code>claude_pro_1m</code></a></li>
+              <li><span>Claude Max (1 month)</span><a class="sku-link" data-sku="claude_max_1m" href="https://t.me/RusBridgeBot?start=claude_max_1m"><code>claude_max_1m</code></a></li>
+            </ul>
+          </article>
+
+          <article class="catalog-card" data-group="nano">
+            <h3 class="catalog-title">NanoBanana</h3>
+            <ul class="catalog-list">
+              <li><span>NanoBanana Basic (1 month)</span><a class="sku-link" data-sku="nano_banana_basic_1m" href="https://t.me/RusBridgeBot?start=nano_banana_basic_1m"><code>nano_banana_basic_1m</code></a></li>
+              <li><span>NanoBanana Pro (1 month)</span><a class="sku-link" data-sku="nano_banana_pro_1m" href="https://t.me/RusBridgeBot?start=nano_banana_pro_1m"><code>nano_banana_pro_1m</code></a></li>
+              <li><span>NanoBanana Max (1 month)</span><a class="sku-link" data-sku="nano_banana_max_1m" href="https://t.me/RusBridgeBot?start=nano_banana_max_1m"><code>nano_banana_max_1m</code></a></li>
+            </ul>
+          </article>
+
+          <article class="catalog-card" data-group="ide">
+            <h3 class="catalog-title">IDE / AI Tools</h3>
+            <ul class="catalog-list">
+              <li><span>Cursor Pro (1 month)</span><a class="sku-link" data-sku="cursor_pro_1m" href="https://t.me/RusBridgeBot?start=cursor_pro_1m"><code>cursor_pro_1m</code></a></li>
+              <li><span>Copilot Pro (1 month)</span><a class="sku-link" data-sku="copilot_pro_1m" href="https://t.me/RusBridgeBot?start=copilot_pro_1m"><code>copilot_pro_1m</code></a></li>
+              <li><span>Copilot Pro+ (1 month)</span><a class="sku-link" data-sku="copilot_pro_plus_1m" href="https://t.me/RusBridgeBot?start=copilot_pro_plus_1m"><code>copilot_pro_plus_1m</code></a></li>
+            </ul>
+          </article>
+
+          <article class="catalog-card" data-group="other">
+            <h3 class="catalog-title">Midjourney</h3>
+            <ul class="catalog-list">
+              <li><span>Midjourney Standard (1 month)</span><a class="sku-link" data-sku="mj_standard_1m" href="https://t.me/RusBridgeBot?start=mj_standard_1m"><code>mj_standard_1m</code></a></li>
+              <li><span>Midjourney Pro (1 month)</span><a class="sku-link" data-sku="mj_pro_1m" href="https://t.me/RusBridgeBot?start=mj_pro_1m"><code>mj_pro_1m</code></a></li>
+              <li><span>Midjourney Mega (1 month)</span><a class="sku-link" data-sku="mj_mega_1m" href="https://t.me/RusBridgeBot?start=mj_mega_1m"><code>mj_mega_1m</code></a></li>
+            </ul>
+          </article>
+
+          <article class="catalog-card" data-group="other">
+            <h3 class="catalog-title">OpenRouter</h3>
+            <ul class="catalog-list">
+              <li><span>OpenRouter top up</span><a class="sku-link" data-sku="openrouter" href="https://t.me/RusBridgeBot?start=openrouter"><code>openrouter</code></a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="steps">
+      <div class="section-inner">
+        <h2 class="section-title">Как подключить (пошагово)</h2>
+        <p class="section-sub">База инструкций внутри сайта. Переходите в нужный гайд и выполняйте шаги.</p>
+
+        <div class="steps-grid">
+          <a class="step-link" href="help-gpt.html"><strong>Как подключить GPT</strong><span>Пошаговый процесс оплаты и активации</span></a>
+          <a class="step-link" href="help-nanobanana.html"><strong>Как подключить NanoBanana</strong><span>Подписка или кредиты в зависимости от провайдера</span></a>
+          <a class="step-link" href="help-claude.html"><strong>Как подключить Claude</strong><span>Оформление Pro/Max на вашем аккаунте</span></a>
+          <a class="step-link" href="help-ide.html"><strong>IDE (Cursor/Copilot)</strong><span>Зачем это нужно и как подключить</span></a>
+          <a class="step-link" href="help-openrouter.html"><strong>OpenRouter</strong><span>Что это такое и как пополнять баланс</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="request">
+      <div class="section-inner panel">
+        <h2 class="section-title" style="margin-bottom:8px">Не нашли нужную подписку?</h2>
+        <p class="section-sub" style="margin-bottom:14px">Напишите в бота - добавим позицию или сделаем пополнение/покупку под ваш запрос.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://t.me/RusBridgeBot">Написать в бот</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="legal">
+      <div class="section-inner">
+        <h2 class="section-title">Дополнительная информация</h2>
+        <div class="cta-row">
+          <a class="btn" href="oferta.html">Читать оферту</a>
           <a class="btn" href="privacy.html">Политика конфиденциальности</a>
           <a class="btn" href="requisites.html">Реквизиты</a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <aside class="card">
-        <h2>Кто оказывает услуги</h2>
-        <p class="small">
-          <strong>Статус:</strong> Самозанятый (НПД)<br/>
-          <strong>Исполнитель:</strong> <span class="muted">Хабибулина Анна Сергеевна</span><br/>
-          <strong>ИНН:</strong> <span class="muted">752904110107</span>
-        </p>
+    <section class="section section-muted" id="contacts">
+      <div class="section-inner contacts">
+        <article class="panel">
+          <h2 class="section-title" style="margin-bottom:10px">Кто оказывает услуги</h2>
+          <ul class="contact-list">
+            <li><strong>Статус:</strong> самозанятый (НПД)</li>
+            <li><strong>ФИО:</strong> Хабибулина Анна Сергеевна</li>
+            <li><strong>ИНН:</strong> 752904110107</li>
+          </ul>
+          <p class="disclaimer">RusBridge не является банком, платежной системой или МФО.</p>
+        </article>
 
-        <div class="hr"></div>
+        <article class="panel">
+          <h2 class="section-title" style="margin-bottom:10px">Контакты</h2>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> <a href="mailto:habibilin.1987.2011@gmail.com">habibilin.1987.2011@gmail.com</a></li>
+            <li><strong>Telegram:</strong> <a href="https://t.me/RusBridgeBot">@RusBridgeBot</a></li>
+            <li><strong>Телефон:</strong> <a href="tel:+79132400017">+7 913 240-00-17</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
 
-        <h2>Важно</h2>
-        <ul class="small muted">
-          <li>RusBridge не является банком/платёжной системой/МФО.</li>
-          <li>Доступность/ограничения конечного сервиса зависят от третьих лиц.</li>
-          <li>Услуга считается оказанной после выполнения согласованных действий (см. оферту).</li>
-        </ul>
-      </aside>
-    </div>
-
-    <section id="products" class="card products">
-        <div class="products-head">
-            <div>
-            <h2>Подписки, которые оформляем</h2>
-            <p class="muted small">Кликни по позиции — откроется бот уже с нужным ключом. Без лишней переписки.</p>
-            </div>
-
-            <div class="products-controls">
-            <input id="skuSearch" class="sku-search" type="search" placeholder="Поиск: gpt_, claude_, copilot_…" autocomplete="off">
-            <div class="chips">
-                <button class="chip active" data-filter="all">Все</button>
-                <button class="chip" data-filter="gpt">GPT</button>
-                <button class="chip" data-filter="claude">Claude</button>
-                <button class="chip" data-filter="ide">IDE AI</button>
-                <button class="chip" data-filter="nano">NanoBanana</button>
-            </div>
-            </div>
-        </div>
-
-        <div class="subs-grid" id="subsGrid">
-            <!-- GPT -->
-            <div class="subs-card" data-group="gpt">
-            <div class="subs-title">
-                GPT
-                <span class="badge popular">Popular</span>
-            </div>
-            <ul class="subs-list">
-                <li>
-                <span>GPT Go (1 month)</span>
-                <a class="sku-link" data-sku="gpt_go_1m" href="https://t.me/RusBridgeBot?start=gpt_go_1m">
-                    <code>gpt_go_1m</code>
-                    <span class="arrow">↗</span>
-                </a>
-                </li>
-                <li>
-                <span>GPT Plus (1 month)</span>
-                <a class="sku-link" data-sku="gpt_plus_1m" href="https://t.me/RusBridgeBot?start=gpt_plus_1m">
-                    <code>gpt_plus_1m</code>
-                    <span class="arrow">↗</span>
-                </a>
-                </li>
-                <li>
-                <span>GPT Pro (1 month)</span>
-                <a class="sku-link" data-sku="gpt_pro_1m" href="https://t.me/RusBridgeBot?start=gpt_pro_1m">
-                    <code>gpt_pro_1m</code>
-                    <span class="arrow">↗</span>
-                </a>
-                </li>
-            </ul>
-            </div>
-
-            <!-- NanoBanana -->
-            <div class="subs-card" data-group="nano">
-            <div class="subs-title">
-                NanoBanana
-                <span class="badge new">New</span>
-            </div>
-            <ul class="subs-list">
-                <li>
-                <span>Basic (1 month)</span>
-                <a class="sku-link" data-sku="nano_banana_basic_1m" href="https://t.me/RusBridgeBot?start=nano_banana_basic_1m">
-                    <code>nano_banana_basic_1m</code><span class="arrow">↗</span>
-                </a>
-                </li>
-                <li>
-                <span>Pro (1 month)</span>
-                <a class="sku-link" data-sku="nano_banana_pro_1m" href="https://t.me/RusBridgeBot?start=nano_banana_pro_1m">
-                    <code>nano_banana_pro_1m</code><span class="arrow">↗</span>
-                </a>
-                </li>
-                <li>
-                <span>Max (1 month)</span>
-                <a class="sku-link" data-sku="nano_banana_max_1m" href="https://t.me/RusBridgeBot?start=nano_banana_max_1m">
-                    <code>nano_banana_max_1m</code><span class="arrow">↗</span>
-                </a>
-                </li>
-            </ul>
-            </div>
-
-            <!-- Claude -->
-            <div class="subs-card" data-group="claude">
-            <div class="subs-title">Claude</div>
-            <ul class="subs-list">
-                <li>
-                <span>Claude Pro (1 month)</span>
-                <a class="sku-link" data-sku="claude_pro_1m" href="https://t.me/RusBridgeBot?start=claude_pro_1m">
-                    <code>claude_pro_1m</code><span class="arrow">↗</span>
-                </a>
-                </li>
-                <li>
-                <span>Claude Max (1 month)</span>
-                <a class="sku-link" data-sku="claude_max_1m" href="https://t.me/RusBridgeBot?start=claude_max_1m">
-                    <code>claude_max_1m</code><span class="arrow">↗</span>
-                </a>
-                </li>
-            </ul>
-            </div>
-
-            <!-- IDE -->
-            <div class="subs-card" data-group="ide">
-            <div class="subs-title">IDE / AI Tools</div>
-            <ul class="subs-list">
-                <li>
-                <span>Cursor Pro (1 month)</span>
-                <a class="sku-link" data-sku="cursor_pro_1m" href="https://t.me/RusBridgeBot?start=cursor_pro_1m">
-                    <code>cursor_pro_1m</code><span class="arrow">↗</span>
-                </a>
-                </li>
-                <li>
-                <span>Copilot Pro (1 month)</span>
-                <a class="sku-link" data-sku="copilot_pro_1m" href="https://t.me/RusBridgeBot?start=copilot_pro_1m">
-                    <code>copilot_pro_1m</code><span class="arrow">↗</span>
-                </a>
-                </li>
-                <li>
-                <span>Copilot Pro+ (1 month)</span>
-                <a class="sku-link" data-sku="copilot_pro_plus_1m" href="https://t.me/RusBridgeBot?start=copilot_pro_plus_1m">
-                    <code>copilot_pro_plus_1m</code><span class="arrow">↗</span>
-                </a>
-                </li>
-            </ul>
-            </div>
-        </div>
-
-        <div class="products-foot">
-            <div class="note">
-            <div class="note-title">Не нашли нужную подписку?</div>
-            <div class="muted small">Пишите в бот — добавим позицию или сделаем пополнение/покупку под запрос.</div>
-            </div>
-
-            <div class="btns">
-            <a class="btn primary" href="https://t.me/RusBridgeBot">Открыть бота</a>
-            <a class="btn" href="oferta.html">Перейти к оферте</a>
-            </div>
-        </div>
-        </section>
-
-    <footer>
-      © <span id="year"></span> RusBridge. Все права защищены. <span class="muted">Не является банковской услугой.</span>
-    </footer>
-  </div>
+  <footer>
+    <div class="footer-inner">© <span id="year"></span> RusBridge. Все права защищены.</div>
+  </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-  <script>
-    // Фильтр по категориям + поиск по SKU/названию
     (function(){
-        const search = document.getElementById('skuSearch');
-        const chips = Array.from(document.querySelectorAll('.chip'));
-        const cards = Array.from(document.querySelectorAll('#subsGrid .subs-card'));
+      var year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
 
-        let activeFilter = 'all';
+      var search = document.getElementById('skuSearch');
+      var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+      var cards = Array.prototype.slice.call(document.querySelectorAll('#subsGrid .catalog-card'));
+      var activeFilter = 'all';
 
-        function apply(){
-        const q = (search?.value || '').trim().toLowerCase();
-
-        cards.forEach(card => {
-            const group = card.getAttribute('data-group');
-            const text = card.innerText.toLowerCase();
-            const matchFilter = (activeFilter === 'all') || (group === activeFilter);
-            const matchQuery = !q || text.includes(q);
-
-            card.style.display = (matchFilter && matchQuery) ? '' : 'none';
+      function applyFilter(){
+        var query = (search && search.value ? search.value : '').trim().toLowerCase();
+        cards.forEach(function(card){
+          var group = card.getAttribute('data-group') || 'other';
+          var text = card.innerText.toLowerCase();
+          var matchFilter = activeFilter === 'all' || group === activeFilter;
+          var matchQuery = !query || text.indexOf(query) > -1;
+          card.style.display = (matchFilter && matchQuery) ? '' : 'none';
         });
-        }
+      }
 
-        chips.forEach(btn => {
-        btn.addEventListener('click', () => {
-            chips.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            activeFilter = btn.getAttribute('data-filter') || 'all';
-            apply();
+      chips.forEach(function(chip){
+        chip.addEventListener('click', function(){
+          chips.forEach(function(item){ item.classList.remove('active'); });
+          chip.classList.add('active');
+          activeFilter = chip.getAttribute('data-filter') || 'all';
+          applyFilter();
         });
-        });
+      });
 
-        if (search) search.addEventListener('input', apply);
-
-        // при клике по SKU краткая подсветка
-        document.querySelectorAll('.sku-link').forEach(a => {
-        a.addEventListener('click', () => {
-            a.style.transform = 'scale(0.98)';
-            setTimeout(() => a.style.transform = '', 120);
-        });
-        });
-
-        apply();
+      if (search) search.addEventListener('input', applyFilter);
+      applyFilter();
     })();
-    </script>
+  </script>
 </body>
 </html>

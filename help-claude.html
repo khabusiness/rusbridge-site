@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Как подключить Claude Pro/Max - RusBridge</title>
+  <meta name="description" content="Пошаговая инструкция RusBridge: как подключить Claude Pro или Claude Max через официальный checkout." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://rus-bridge.ru/help-claude.html" />
+  <style>
+    :root{
+      --bg:#070d18; --text:#eaf2ff; --muted:#9db1ce; --line:rgba(255,255,255,.12);
+      --panel:#12233d; --accent:#4da3ff; --ok:#6cffb6; --warn:#ffd870;
+      --max:980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:Manrope,"Segoe UI",system-ui,-apple-system,sans-serif;color:var(--text);
+      background:
+        radial-gradient(900px 500px at -10% -10%, rgba(77,163,255,.18), rgba(77,163,255,0) 60%),
+        radial-gradient(800px 420px at 90% 0%, rgba(108,255,182,.10), rgba(108,255,182,0) 60%),
+        var(--bg);
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin:0 auto;padding:22px 16px 56px}
+    .top{
+      position:sticky;top:0;z-index:20;padding:10px 0;
+      background:linear-gradient(180deg, rgba(7,13,24,.92), rgba(7,13,24,.65), rgba(7,13,24,0));
+      backdrop-filter: blur(8px);
+    }
+    .top-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:38px;height:38px;border-radius:10px;object-fit:cover}
+    .brand b{font-size:18px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);font-size:13px}
+    .btns{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:9px 12px;border-radius:11px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text);text-decoration:none}
+    .btn.primary{background:rgba(77,163,255,.18);border-color:rgba(77,163,255,.45)}
+    .card{margin-top:14px;border:1px solid var(--line);border-radius:18px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02))}
+    h1{margin:0 0 8px;font-size:30px;line-height:1.15}
+    h2{margin:18px 0 8px;font-size:20px}
+    p{margin:8px 0;line-height:1.6}
+    .muted{color:var(--muted)}
+    .hero{display:grid;grid-template-columns:1fr 220px;gap:14px;align-items:center}
+    .hero img{width:100%;border-radius:14px;border:1px solid var(--line);background:#0b1628}
+    .note{border:1px solid rgba(255,216,112,.45);background:rgba(255,216,112,.10);padding:12px;border-radius:12px}
+    .steps{display:grid;gap:10px;margin-top:10px}
+    .step{border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(255,255,255,.03)}
+    .step b{display:block;margin-bottom:6px}
+    .list{margin:8px 0 0 18px}
+    .list li{margin:6px 0}
+    .ok{color:var(--ok)}
+    .warn{color:var(--warn)}
+    code{background:rgba(255,255,255,.06);border:1px solid var(--line);padding:2px 6px;border-radius:8px}
+    @media (max-width:760px){
+      .hero{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="wrap top-inner">
+      <div class="brand">
+        <img class="logo" src="logo.png" alt="RusBridge" />
+        <b>RusBridge</b>
+      </div>
+      <div class="btns">
+        <a class="btn" href="index.html">На главную</a>
+        <a class="btn primary" href="https://t.me/RusBridgeBot">Открыть бота</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="hero">
+        <div>
+          <div class="pill">Инструкция: Claude</div>
+          <h1>Как подключить Claude Pro / Claude Max</h1>
+          <p class="muted">Подключение делается к вашему существующему аккаунту Claude через официальную страницу оплаты.</p>
+        </div>
+        <img src="images/index_block/cloud_logo%202.webp" alt="Claude" />
+      </div>
+
+      <div class="note" style="margin-top:14px">
+        <strong>Важно:</strong> мы не создаем аккаунты. Вы входите в свой аккаунт, открываете checkout и отправляете ссылку в бот.
+      </div>
+
+      <h2>Шаги</h2>
+      <div class="steps">
+        <div class="step">
+          <b>1) Войдите в аккаунт Claude</b>
+          Откройте <code>claude.ai</code> и авторизуйтесь. Если сервис просит подтверждение телефона, сначала завершите его.
+        </div>
+        <div class="step">
+          <b>2) Откройте страницу тарифа</b>
+          Перейдите в настройки/план и нажмите кнопку <code>Upgrade</code> или <code>Subscribe</code>.
+        </div>
+        <div class="step">
+          <b>3) Выберите Pro или Max</b>
+          Проверьте срок и стоимость, затем перейдите к оплате на официальной странице checkout.
+        </div>
+        <div class="step">
+          <b>4) Скопируйте ссылку checkout</b>
+          Не закрывая страницу оплаты, скопируйте полный URL из адресной строки.
+        </div>
+        <div class="step">
+          <b>5) Отправьте ссылку в RusBridgeBot</b>
+          Бот проведет вас по оплате и подтверждению. После завершения проверьте, что в аккаунте активировался нужный план.
+        </div>
+      </div>
+
+      <h2>Частые проблемы</h2>
+      <ul class="list muted">
+        <li><span class="warn">Ссылка checkout не открывается:</span> сгенерируйте новую ссылку, старые часто истекают.</li>
+        <li><span class="warn">Просит снова логин:</span> откройте checkout, пока вы авторизованы в Claude в этом же браузере.</li>
+        <li><span class="ok">Норма:</span> активация плана может занять несколько минут после успешной оплаты.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
