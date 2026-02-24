@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Как подключить NanoBanana — пополнить кредиты и оплатить подписку</title>
+  <meta name="description" content="Пошаговая инструкция: как пополнить NanoBanana (кредиты или подписка) через RusBridge. Где найти кредиты, как выбрать тариф и как отправить ссылку на оплату в Telegram-бот." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://rus-bridge.ru/help-nanobanana.html" />
+
+  <style>
+    :root{
+      --bg:#0b1220; --card:#0f1a2f; --text:#e8eefc; --muted:#a9b7d0;
+      --accent:#4da3ff; --border:rgba(255,255,255,.10);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:linear-gradient(180deg,#070b14,#0b1220);
+      color:var(--text);
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 16px 80px}
+    .card{
+      margin-top:18px;background:rgba(15,26,47,.85);border:1px solid var(--border);
+      border-radius:18px;padding:18px;box-shadow:0 10px 40px rgba(0,0,0,.35);
+    }
+    h1{margin:0 0 10px;font-size:28px}
+    h2{margin:18px 0 10px;font-size:18px}
+    h3{margin:16px 0 8px;font-size:16px}
+    p{margin:8px 0;line-height:1.6}
+    ul{margin:8px 0 0 18px}
+    li{margin:6px 0}
+    .muted{color:var(--muted)}
+    .hr{height:1px;background:rgba(255,255,255,.08);margin:16px 0}
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;
+      background:rgba(77,163,255,.12);border:1px solid rgba(77,163,255,.28);
+      font-size:13px;color:var(--text);
+    }
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media (min-width:860px){ .grid{grid-template-columns:1.2fr .8fr} }
+    .note{
+      padding:12px 14px;border-radius:16px;border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+    .steps{counter-reset:step}
+    .step{
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:14px;margin-top:14px;
+    }
+    .step:first-child{border-top:none;padding-top:0;margin-top:0}
+    .step-title{
+      font-weight:800;display:flex;gap:10px;align-items:center;
+    }
+    .step-title:before{
+      counter-increment:step;
+      content:counter(step);
+      width:28px;height:28px;border-radius:10px;
+      display:grid;place-items:center;
+      background:rgba(77,163,255,.16);
+      border:1px solid rgba(77,163,255,.35);
+      color:var(--text);
+      font-weight:800;
+      flex:0 0 auto;
+    }
+    .img{
+      width:100%;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      margin-top:10px;
+      box-shadow:0 12px 30px rgba(0,0,0,.25);
+      background:rgba(255,255,255,.02);
+    }
+    .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{
+      display:inline-block;padding:10px 12px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06)
+    }
+    .btn.primary{background:rgba(77,163,255,.18);border-color:rgba(77,163,255,.35)}
+    code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:8px}
+    .small{font-size:13px}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="pill">Инструкция · NanoBanana · кредиты и подписка</div>
+      <h1>Как подключить NanoBanana: пополнить кредиты или оплатить подписку</h1>
+      <p class="muted">
+        NanoBanana — это не “один официальный сайт”, а экосистема. Доступ к генератору могут предоставлять разные провайдеры:
+        у них отличаются тарифы, пакеты кредитов и варианты подписки.
+      </p>
+
+      <div class="grid" style="margin-top:12px">
+        <div class="note">
+          <b>Важно:</b> мы оплачиваем официальный checkout (страница оплаты провайдера).
+          Доступ и кредиты остаются на вашем аккаунте у выбранного провайдера.
+        </div>
+        <div class="note">
+          <b>Совет:</b> если провайдер предлагает “one-time credits” — это удобно для разовых задач.
+          Подписка выгоднее, если пользуетесь постоянно.
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <h2>Где можно подключить NanoBanana</h2>
+      <p>Примеры популярных провайдеров (не единственные):</p>
+      <ul>
+        <li><code>nanobanana.im</code></li>
+        <li><code>nanobanapro.com</code></li>
+        <li><code>nano-banana.ai</code></li>
+        <li><code>nano-banana.io</code></li>
+        <li><code>nanobanana.ai</code></li>
+        <li><code>nanobanana.app</code></li>
+      </ul>
+      <p class="muted small">
+        Можно выбрать любой удобный и выгодный вариант. Суть процедуры одинаковая: дойти до страницы оплаты и дать нам ссылку.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Пошаговая инструкция</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-title">Зайдите на сайт провайдера под своей учетной записью</div>
+          <p>
+            Авторизуйтесь (login) и убедитесь, что вы вошли именно в свой аккаунт — туда потом придут кредиты/подписка.
+          </p>
+          <img class="img" src="/images/nano/NANO1.jpg" alt="NanoBanana — вход в аккаунт и счетчик кредитов">
+        </div>
+
+        <div class="step">
+          <div class="step-title">Откройте раздел кредитов (Credits)</div>
+          <p>
+            Обычно в верхней панели есть счетчик <b>Credits</b>. Нажмите на него.
+          </p>
+          <img class="img" src="/images/nano/NANO2.jpg" alt="NanoBanana — раздел My Credits">
+        </div>
+
+        <div class="step">
+          <div class="step-title">Нажмите Recharge / Get more credits</div>
+          <p>
+            Внутри обычно есть кнопка пополнения: <b>Recharge</b>, <b>Get More Credits</b> или похожая.
+          </p>
+          <img class="img" src="/images/nano/NANO3.jpg" alt="NanoBanana — выбор пополнения или тарифов">
+        </div>
+
+        <div class="step">
+          <div class="step-title">Выберите тариф</div>
+          <p>
+            У провайдеров варианты бывают разные:
+          </p>
+          <ul>
+            <li><b>Subscription</b> — подписка (ежемесячная/годовая)</li>
+            <li><b>Credit Packs / One-time</b> — разовая покупка кредитов</li>
+          </ul>
+          <p class="muted small">
+            Условия у разных сайтов отличаются: количество кредитов, срок действия, лимиты, скорость.
+          </p>
+          <img class="img" src="/images/nano/NANO4.jpg" alt="NanoBanana — тарифы: подписка или разовые кредиты">
+        </div>
+
+        <div class="step">
+          <div class="step-title">На странице оплаты выберите страну Kyrgyzstan / Кыргызстан</div>
+          <p>
+            Когда откроется checkout (форма оплаты), в блоке адреса / billing установите страну:
+            <b>Kyrgyzstan</b> (Кыргызстан / Киргизия).
+          </p>
+          <p class="small muted">
+            Важно: страницу оплаты <b>не закрывайте</b> до завершения процедуры с нашей стороны.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-title">Скопируйте ссылку на оплату и отправьте её в RusBridgeBot</div>
+          <p>
+            Откройте меню браузера и выберите <b>Copy link</b> / <b>Копировать ссылку</b>.
+            Эту ссылку отправьте в чат бота.
+          </p>
+
+          <div class="btns">
+            <!-- Поставь сюда свою deep-link механику (start=...) когда будет готово -->
+            <a class="btn primary" href="https://t.me/RusBridgeBot" target="_blank">Открыть RusBridgeBot</a>
+            <a class="btn" href="https://rus-bridge.ru/" target="_blank">Вернуться на главную</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <h2>Частые вопросы</h2>
+
+      <h3>Сколько времени занимает пополнение?</h3>
+      <p>Обычно 5–15 минут после получения ссылки на оплату.</p>
+
+      <h3>Можно ли купить разовые кредиты вместо подписки?</h3>
+      <p>Да. У многих провайдеров есть “one-time” пакеты кредитов — удобно, если не хотите ежемесячные списания.</p>
+
+      <h3>У разных сайтов разные тарифы — это нормально?</h3>
+      <p>Да. NanoBanana распространяется через провайдеров, поэтому условия и цены могут отличаться.</p>
+
+      <h3>Это безопасно?</h3>
+      <p>
+        Мы не “ломаем” оплату и не меняем ваш аккаунт.
+        Мы работаем со ссылкой на официальный checkout выбранного вами провайдера.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Нужно ещё проще?</h2>
+      <p class="muted">
+        Если вы не хотите выбирать провайдера — напишите в боте “NanoBanana”, и мы подскажем варианты по цене/удобству.
+      </p>
+
+      <div class="btns">
+        <a class="btn primary" href="https://t.me/RusBridgeBot" target="_blank">Написать в RusBridgeBot</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
